@@ -5,6 +5,7 @@ const StyledContainer = styled.div`
 	width: 87.2%;
 	margin: auto;
 	${(props) => props.additionalStyles};
+
 	@media ${device.tablet} {
 		width: 89.7%;
 	}
