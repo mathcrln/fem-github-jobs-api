@@ -1,7 +1,7 @@
 import styled from 'styled-components';
 
 const OfferContainer = styled.div`
-	background: ${({ theme }) => theme.offerBackground};
+	background: ${({ theme }) => theme.elementsBackground};
 	border-radius: 6px;
 	padding: 3.06rem 3rem 1rem 2rem;
 	position: relative;
