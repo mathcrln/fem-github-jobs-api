@@ -1,5 +1,9 @@
 import StyledContainer from './container.styled';
 
-export default function Container({ children }) {
-	return <StyledContainer>{children}</StyledContainer>;
+export default function Container({ additionalStyles, children }) {
+	return (
+		<StyledContainer additionalStyles={additionalStyles}>
+			{children}
+		</StyledContainer>
+	);
 }

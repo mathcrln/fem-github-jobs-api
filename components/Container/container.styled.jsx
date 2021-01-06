@@ -4,8 +4,7 @@ import { device } from '../../utilities/devices';
 const StyledContainer = styled.div`
 	width: 87.2%;
 	margin: auto;
-	margin-top: 15rem;
-
+	${(props) => props.additionalStyles};
 	@media ${device.tablet} {
 		width: 89.7%;
 	}
