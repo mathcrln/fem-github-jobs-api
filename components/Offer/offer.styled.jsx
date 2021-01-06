@@ -1,15 +1,14 @@
 import styled from 'styled-components';
-import Image from 'next/image';
 
 const OfferContainer = styled.div`
-	background: #ffffff;
+	background: ${({ theme }) => theme.offerBackground};
 	border-radius: 6px;
 	padding: 3.06rem 3rem 1rem 2rem;
 	position: relative;
 `;
 
 const OfferTitle = styled.h2`
-	color: #19202d;
+	color: ${({ theme }) => theme.headingColor};
 	font-family: Kumbh Sans, sans-serif;
 	font-size: 1.25rem;
 	font-style: normal;
@@ -61,30 +60,12 @@ const CircleSeparator = styled.span`
 	margin: 0 0.75rem;
 `;
 
-export default function SingleOffer({
-	title,
-	company,
-	timeSince,
-	region,
-	contractType,
-	companyIcon,
-}) {
-	return (
-		<OfferContainer>
-			<CompanyIcon>
-				<Image
-					src={`/company/${companyIcon}.svg`}
-					alt={company}
-					width={50}
-					height={50}
-				/>
-			</CompanyIcon>
-			<OfferDetails>{timeSince}</OfferDetails>
-			<CircleSeparator />
-			<OfferDetails>{contractType}</OfferDetails>
-			<OfferTitle>{title}</OfferTitle>
-			<Company>{company}</Company>
-			<Region>{region}</Region>
-		</OfferContainer>
-	);
-}
+export {
+	OfferContainer,
+	OfferTitle,
+	Company,
+	Region,
+	CompanyIcon,
+	OfferDetails,
+	CircleSeparator,
+};
