@@ -1,24 +1,18 @@
-import styled from 'styled-components';
-import SingleOffer from './single-offer.component';
+import Offer from '../Offer';
+import OfferGrid from './offerList.styled';
 
-const JobGrid = styled.div`
-	display: grid;
-	grid-template-columns: 1fr 1fr 1fr;
-	gap: 30px;
-`;
-
-export default function JobList() {
+export default function OfferList() {
 	return (
-		<JobGrid>
-			<SingleOffer
+		<OfferGrid>
+			<Offer
 				title='Senior Software Engineer'
 				timeSince='5h ago'
 				contractType='Full Time'
 				company='So Digital Inc.'
 				region='Remote, Seoul, Tokyo, Mountain View, San Fransisco'
-				companyIcon='photosnap'
+				companyIcon='so-digital'
 			/>
-			<SingleOffer
+			<Offer
 				title='Haskell and PureScript Dev'
 				timeSince='20h ago'
 				contractType='Part Time'
@@ -26,14 +20,14 @@ export default function JobList() {
 				region='Columbus, OH'
 				companyIcon='national-wildlife'
 			/>
-			<SingleOffer
+			<Offer
 				title='Midlevel Back End Engineer'
 				timeSince='1d ago'
 				contractType='Part Time'
 				company='Photosnap Ltd.'
 				region='Russia'
-				companyIcon='so-digital'
+				companyIcon='photosnap'
 			/>
-		</JobGrid>
+		</OfferGrid>
 	);
 }
