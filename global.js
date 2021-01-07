@@ -16,6 +16,7 @@ export const GlobalStyles = createGlobalStyle`
   
   body {
     font-size: 16px;
+    font-family: Kumbh Sans, sans-serif;
     background: ${({ theme }) => theme.body};
     color: ${({ theme }) => theme.text};
   }`;

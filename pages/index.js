@@ -1,14 +1,12 @@
 import Head from 'next/head';
-import React, { useState } from 'react';
 import { ThemeProvider } from 'styled-components';
 import { useDarkMode } from '../hooks/useDarkMode';
 import { lightTheme, darkTheme } from '../theme';
 import { GlobalStyles } from '../global';
-import Toggle from '../components/Toggle';
-
 import OfferList from '../components/OfferList';
 import Header from '../components/Header';
 import Container from '../components/Container';
+import FilterContainer from '../components/FilterContainer';
 
 export default function Home() {
 	const [theme, setTheme] = useDarkMode();
@@ -31,11 +29,11 @@ export default function Home() {
 
 				<div className='App'>
 					<Header theme={theme} toggleTheme={toggleTheme} />
+					<FilterContainer />
 					<main>
 						<Container>
 							<OfferList />
 						</Container>
-						{/* <Toggle theme={theme} toggleTheme={toggleTheme} /> */}
 					</main>
 				</div>
 			</>
