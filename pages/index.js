@@ -1,6 +1,8 @@
 import Head from 'next/head';
 import { ThemeProvider } from 'styled-components';
 import { useDarkMode } from '../hooks/useDarkMode';
+
+import { MediaContextProvider } from '../media';
 import { lightTheme, darkTheme } from '../theme';
 import { GlobalStyles } from '../global';
 import OfferList from '../components/OfferList';
@@ -18,6 +20,7 @@ export default function Home() {
 			setTheme('light');
 		}
 	};
+
 	return (
 		<ThemeProvider theme={themeMode}>
 			<>
@@ -26,16 +29,19 @@ export default function Home() {
 					<title>Github Jobs API</title>
 					<link rel='icon' href='/favicon.ico' />
 				</Head>
+				<MediaContextProvider>
+					<div className='App'>
+						<Header theme={theme} toggleTheme={toggleTheme} />
 
-				<div className='App'>
-					<Header theme={theme} toggleTheme={toggleTheme} />
-					<FilterContainer />
-					<main>
-						<Container>
-							<OfferList />
-						</Container>
-					</main>
-				</div>
+						<FilterContainer />
+
+						<main>
+							<Container>
+								<OfferList />
+							</Container>
+						</main>
+					</div>
+				</MediaContextProvider>
 			</>
 		</ThemeProvider>
 	);
