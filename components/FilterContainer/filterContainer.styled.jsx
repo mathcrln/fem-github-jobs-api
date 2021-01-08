@@ -1,13 +1,19 @@
 import styled from 'styled-components';
 import { device } from '../../utilities/devices';
 
-const StyledFilter = styled.div`
+const Form = styled.form`
 	background: ${({ theme }) => theme.elementsBackground};
 	border-radius: 6px;
 	border: none;
 	min-height: 5rem;
 	display: grid;
 	grid-template-columns: 41.6% 27% 16% 1fr;
+
+	@media ${device.tablet} {
+		grid-template-columns: 1fr 1fr 15% 15%;
+	}
+	@media ${device.desktop} {
+	}
 `;
 
 const StyledDiv = styled.div`
@@ -17,4 +23,4 @@ const StyledDiv = styled.div`
 	font-weight: bold;
 `;
 
-export { StyledFilter, StyledDiv };
+export { Form, StyledDiv };

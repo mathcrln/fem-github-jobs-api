@@ -1,12 +1,12 @@
 import SearchBar from '../SearchBar';
 import Container from '../Container';
 import Button from '../Button';
-import { StyledFilter, StyledDiv } from './filterContainer.styled';
+import { Form, StyledDiv } from './filterContainer.styled';
 
 const FilterContainer = () => {
 	return (
 		<Container additionalStyles='margin-top: -3rem; margin-bottom: 4rem;'>
-			<StyledFilter>
+			<Form>
 				<SearchBar
 					name='generalFilter'
 					iconFile='icon-search'
@@ -36,7 +36,7 @@ const FilterContainer = () => {
 				<StyledDiv>
 					<Button buttonTitle='Search' />
 				</StyledDiv>
-			</StyledFilter>
+			</Form>
 		</Container>
 	);
 };
