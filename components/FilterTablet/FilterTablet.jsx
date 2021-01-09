@@ -1,7 +1,7 @@
 import SearchBar from '../SearchBar';
 import Button from '../Button';
 import Checkbox from '../Checkbox';
-import { Form, StyledDiv, StyledCheckbox } from './FilterTablet.styled';
+import { Form, StyledDiv, StyledCheckbox } from './filterTablet.styled';
 
 const FilterTablet = ({
 	state,
