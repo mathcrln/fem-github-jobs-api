@@ -28,10 +28,10 @@ Your users should be able to:
 
 ```javascript
 fetch(
-  'https://cors-anywhere.herokuapp.com/https://jobs.github.com/positions.json'
+	'https://cors-anywhere.herokuapp.com/https://jobs.github.com/positions.json'
 )
-  .then((res) => res.json())
-  .then((data) => console.log(data));
+	.then((res) => res.json())
+	.then((data) => console.log(data));
 ```
 
 ⚠️ **IMPORTANT** ⚠️: The "Full Time Only" param seems to have changed on the GitHub Jobs API. Instead of setting `full_time=true`, it seems like `full_time=on` is what you should set. Although the docs still say `full_time=true`.
