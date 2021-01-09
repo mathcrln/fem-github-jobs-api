@@ -1,6 +1,14 @@
 {
 	"extends": ["airbnb", "prettier"],
 	"plugins": ["prettier"],
+	"parser": "babel-eslint",
+	"parserOptions": {
+		"ecmaVersion": 6,
+		"sourceType": "module",
+		"ecmaFeatures": {
+			"jsx": true
+		}
+	},
 	"rules": {
 		"prettier/prettier": ["error"]
 	}
