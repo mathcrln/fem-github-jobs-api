@@ -1,8 +1,9 @@
-import Image from 'next/image';
 import { StyledButton } from './button.styled';
 
-export default function Button({ content, padding = '1rem 2.4375rem' }) {
+export default function Button({ content, name, padding = '1rem 2.4375rem' }) {
 	return (
-		<StyledButton padding={padding}>{content ? content : null}</StyledButton>
+		<StyledButton name={name} padding={padding}>
+			{content ? content : null}
+		</StyledButton>
 	);
 }
