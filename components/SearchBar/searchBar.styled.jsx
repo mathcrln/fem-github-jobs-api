@@ -14,14 +14,13 @@ const TextInput = styled.input`
 	mix-blend-mode: normal;
 	opacity: 0.5;
 	width: 100%;
-	border-right: 0.8px solid #6e8098;
 
 	:focus {
 		outline: none;
 	}
 `;
 const StyledSearch = styled.div`
-	padding-left: 2rem;
+	${(props) => props.additionalStyles};
 	display: flex;
 	align-items: center;
 `;

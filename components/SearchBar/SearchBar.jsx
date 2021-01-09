@@ -2,18 +2,26 @@ import { TextInput, StyledSearch } from './searchBar.styled';
 import Image from 'next/image';
 
 const SearchBar = ({
-	width,
-	filter,
 	name,
 	placeholder,
 	iconFile,
 	iconWidth,
 	iconHeight,
+	additionalStyles,
+	onChange,
 }) => {
 	return (
-		<StyledSearch>
-			<Image src={`/${iconFile}.svg`} width={iconWidth} height={iconHeight} />
-			<TextInput type='text' placeholder={placeholder} id={name} />
+		<StyledSearch additionalStyles={additionalStyles}>
+			{iconFile ? (
+				<Image src={`/${iconFile}.svg`} width={iconWidth} height={iconHeight} />
+			) : null}
+			<TextInput
+				name={name}
+				type='text'
+				placeholder={placeholder}
+				id={name}
+				onChange={onChange}
+			/>
 		</StyledSearch>
 	);
 };

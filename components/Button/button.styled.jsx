@@ -7,8 +7,11 @@ const StyledButton = styled.button`
 	box-shadow: none;
 	color: white;
 	cursor: pointer;
-	padding: 1rem 2.4375rem;
+	padding: ${(props) => props.padding};
+	display: flex;
+	align-items: center;
 	font-size: 1rem;
+	font-weight: bold;
 	max-height: 3rem;
 	font-family: 'Kumbh Sans', serif;
 	:hover {
