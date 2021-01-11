@@ -19,7 +19,8 @@ export default function Offer({
 	contractType,
 	companyIcon,
 }) {
-	const timeSince = relativeDate(Date.parse(createdAt));
+	let timeSince = relativeDate(Date.parse(createdAt));
+	timeSince = timeSince.charAt(0).toUpperCase() + timeSince.slice(1);
 	return (
 		<OfferContainer>
 			<OfferTop>
