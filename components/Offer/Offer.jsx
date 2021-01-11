@@ -1,4 +1,5 @@
 import Image from 'next/image';
+import relativeDate from 'relative-date';
 import {
 	OfferContainer,
 	OfferTitle,
@@ -13,11 +14,12 @@ import {
 export default function Offer({
 	title,
 	company,
-	timeSince,
+	createdAt,
 	region,
 	contractType,
 	companyIcon,
 }) {
+	const timeSince = relativeDate(Date.parse(createdAt));
 	return (
 		<OfferContainer>
 			<OfferTop>
