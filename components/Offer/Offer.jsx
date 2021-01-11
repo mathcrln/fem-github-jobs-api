@@ -7,6 +7,7 @@ import {
 	CompanyIcon,
 	OfferDetails,
 	CircleSeparator,
+	OfferTop,
 } from './offer.styled';
 
 export default function Offer({
@@ -19,14 +20,19 @@ export default function Offer({
 }) {
 	return (
 		<OfferContainer>
-			<CompanyIcon>
-				<Image
-					src={`/company/${companyIcon}.svg`}
-					alt={company}
-					width={50}
-					height={50}
-				/>
-			</CompanyIcon>
+			<OfferTop>
+				{companyIcon && (
+					<CompanyIcon>
+						<Image
+							src={`${companyIcon}`}
+							alt={company}
+							layout='fill'
+							objectFit='contain'
+						/>
+					</CompanyIcon>
+				)}
+			</OfferTop>
+
 			<OfferDetails>{timeSince}</OfferDetails>
 			<CircleSeparator />
 			<OfferDetails>{contractType}</OfferDetails>

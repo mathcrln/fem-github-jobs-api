@@ -41,15 +41,25 @@ const Region = styled.p`
 	color: #5964e0;
 `;
 
-const CompanyIcon = styled.div`
+const OfferTop = styled.div`
 	position: absolute;
+	height: 50px;
+	width: 100px;
+	left: 20px;
 	top: -25px;
 `;
+
+const CompanyIcon = styled.div`
+	position: relative;
+	height: 50px;
+`;
+
 const OfferDetails = styled.span`
 	color: #6e8098;
 	font-family: Kumbh Sans, sans-serif;
 	position: relative;
 `;
+
 const CircleSeparator = styled.span`
 	height: 4px;
 	width: 4px;
@@ -68,4 +78,5 @@ export {
 	CompanyIcon,
 	OfferDetails,
 	CircleSeparator,
+	OfferTop,
 };
