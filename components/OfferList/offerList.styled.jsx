@@ -25,5 +25,9 @@ const Loading = styled.p`
 	font-size: 1.5rem;
 	font-family: Kumbh Sans, sans-serif;
 `;
+const Center = styled.p`
+	display: flex;
+	justify-content: center;
+`;
 
-export { OfferGrid, Loading };
+export { OfferGrid, Loading, Center };

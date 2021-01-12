@@ -1,7 +1,7 @@
 import Head from 'next/head';
 import { ThemeProvider } from 'styled-components';
 import { useDarkMode } from '../hooks/useDarkMode';
-
+import { useState } from 'react';
 import { MediaContextProvider } from '../media';
 import { lightTheme, darkTheme } from '../theme';
 import { GlobalStyles } from '../global';
@@ -21,6 +21,26 @@ export default function Home() {
 		}
 	};
 
+	const [search, setSearch] = useState('');
+	const [location, setlocation] = useState('');
+	const [fullTimeOnly, setfullTimeOnly] = useState(false);
+	const [submitted, setSubmitted] = useState(false);
+
+	const handleSearchChange = (event) => {
+		setSearch(event.target.value);
+		console.log('search');
+	};
+	const handleLocationChange = (event) => {
+		setlocation(event.target.value);
+	};
+	const handleCheckboxChange = (event) => {
+		setfullTimeOnly(event.target.checked);
+	};
+	const handleSubmit = (event) => {
+		event.preventDefault();
+		setSubmitted(submitted + 1);
+	};
+
 	return (
 		<ThemeProvider theme={themeMode}>
 			<>
@@ -33,11 +53,22 @@ export default function Home() {
 					<div className='App'>
 						<Header theme={theme} toggleTheme={toggleTheme} />
 
-						<FilterContainer />
+						<FilterContainer
+							handleSearchChange={handleSearchChange}
+							handleLocationChange={handleLocationChange}
+							handleCheckboxChange={handleCheckboxChange}
+							fullTimeOnly={fullTimeOnly}
+							handleSubmit={handleSubmit}
+						/>
 
 						<main>
 							<Container>
-								<OfferList />
+								<OfferList
+									description={search}
+									location={location}
+									fullTimeOnly={fullTimeOnly}
+									submitted={submitted}
+								/>
 							</Container>
 						</main>
 					</div>

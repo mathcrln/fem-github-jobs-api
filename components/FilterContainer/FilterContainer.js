@@ -5,24 +5,13 @@ import FilterMobile from '../FilterMobile';
 import FilterTablet from '../FilterTablet';
 import { Media } from '../../media';
 
-const FilterContainer = (submitSearchQuery) => {
-	const [search, setSearch] = useState('');
-	const [location, setlocation] = useState('');
-	const [fullTimeOnly, setfullTimeOnly] = useState(false);
-
-	const handleSearchChange = (event) => {
-		setSearch(event.target.value);
-	};
-	const handleLocationChange = (event) => {
-		setlocation(event.target.value);
-	};
-	const handleCheckboxChange = (event) => {
-		setfullTimeOnly(event.target.checked);
-	};
-	const handleSubmit = (event) => {
-		event.preventDefault();
-	};
-
+const FilterContainer = ({
+	handleSearchChange,
+	handleLocationChange,
+	handleCheckboxChange,
+	fullTimeOnly,
+	handleSubmit,
+}) => {
 	return (
 		<Container additionalStyles='margin-top: -3rem; margin-bottom: 4rem;'>
 			<Media at='mobile'>
@@ -49,7 +38,7 @@ const FilterContainer = (submitSearchQuery) => {
 					handleCheckboxChange={handleCheckboxChange}
 					handleSearchChange={handleSearchChange}
 					handleLocationChange={handleLocationChange}
-					handleSubmit={submitSearchQuery}
+					handleSubmit={handleSubmit}
 				/>
 			</Media>
 		</Container>

@@ -1,19 +1,21 @@
 import Offer from '../Offer';
+import Button from '../Button';
 import { useFetch } from '../../hooks/useFetch';
 import { useDisplayOffers } from '../../hooks/useDisplayOffers';
-import { OfferGrid, Loading } from './offerList.styled';
+import { OfferGrid, Loading, Center } from './offerList.styled';
 
-export default function OfferList(
+export default function OfferList({
 	description = '',
-	fullTime = '',
-	location = ''
-) {
-	const requestedUrl = `https://cors-anywhere.herokuapp.com/https://jobs.github.com/positions.json${
-		description || fullTime || location
-			? `?description=${description}&full_time=${fullTime}&location=${location}`
-			: ''
-	}`;
-	const { data, loading } = useFetch(requestedUrl);
+	fullTimeOnly = '',
+	location = '',
+	submitted,
+}) {
+	const { data, loading } = useFetch(
+		description,
+		fullTimeOnly,
+		location,
+		submitted
+	);
 	const { displayed, loadMore } = useDisplayOffers(12);
 	const isDisplayComplete = displayed > data.length ? true : false;
 	return (
@@ -23,6 +25,7 @@ export default function OfferList(
 			) : (
 				<>
 					<OfferGrid>
+						{console.log('re-rendered')}
 						{data.slice(0, displayed).map((offer) => (
 							<Offer
 								key={offer.id}
@@ -35,9 +38,11 @@ export default function OfferList(
 							/>
 						))}
 					</OfferGrid>
-					{isDisplayComplete ? null : (
-						<button onClick={loadMore}>Load more</button>
-					)}
+					<Center>
+						{isDisplayComplete ? null : (
+							<Button content='Load More' handler={loadMore} />
+						)}
+					</Center>
 				</>
 			)}
 		</>
