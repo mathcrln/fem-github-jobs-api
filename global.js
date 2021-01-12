@@ -19,4 +19,5 @@ export const GlobalStyles = createGlobalStyle`
     font-family: Kumbh Sans, sans-serif;
     background: ${({ theme }) => theme.body};
     color: ${({ theme }) => theme.text};
+    padding-bottom: 5rem;
   }`;
