@@ -4,9 +4,10 @@ import Checkbox from '../Checkbox';
 import { Form, StyledDiv } from './filterDesktop.styled';
 
 const DesktopFilter = ({
-	state,
+	isChecked,
+	handleSearchChange,
+	handleLocationChange,
 	handleCheckboxChange,
-	handleChange,
 	handleSubmit,
 }) => {
 	return (
@@ -18,7 +19,7 @@ const DesktopFilter = ({
 				iconHeight={23.94}
 				placeholder='Filter by title, companies, expertise…'
 				additionalStyles='border-right: 0.8px solid #6e8098;'
-				handleChange={handleChange}
+				handleChange={handleSearchChange}
 			/>
 			<SearchBar
 				name='location'
@@ -27,11 +28,11 @@ const DesktopFilter = ({
 				iconHeight={23.89}
 				placeholder='Filter by location…'
 				additionalStyles='padding-left:1.5rem; border-right: 0.8px solid #6e8098;'
-				handleChange={handleChange}
+				handleChange={handleLocationChange}
 			/>
 			<StyledDiv>
 				<label>
-					<Checkbox checked={state.checked} onChange={handleCheckboxChange} />
+					<Checkbox checked={isChecked} onChange={handleCheckboxChange} />
 					<span>Full Time Only </span>
 				</label>
 			</StyledDiv>

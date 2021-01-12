@@ -8,7 +8,7 @@ const SearchBar = ({
 	iconWidth,
 	iconHeight,
 	additionalStyles,
-	onChange,
+	handleChange,
 }) => {
 	return (
 		<StyledSearch additionalStyles={additionalStyles}>
@@ -20,7 +20,7 @@ const SearchBar = ({
 				type='text'
 				placeholder={placeholder}
 				id={name}
-				onChange={onChange}
+				onChange={handleChange}
 			/>
 		</StyledSearch>
 	);

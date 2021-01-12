@@ -4,9 +4,10 @@ import Checkbox from '../Checkbox';
 import { Form, StyledFilterButton } from './filterMobile.styled';
 
 const FilterMobile = ({
-	state,
+	isChecked,
+	handleSearchChange,
+	handleLocationChange,
 	handleCheckboxChange,
-	handleChange,
 	handleSubmit,
 }) => {
 	return (
@@ -15,7 +16,7 @@ const FilterMobile = ({
 				name='search'
 				placeholder='Filter by title...'
 				additionalStyles='flex-grow: 1;'
-				handleChange={handleChange}
+				handleChange={handleSearchChange}
 			/>
 			<StyledFilterButton type='button'>
 				<svg width='20' height='20' xmlns='http://www.w3.org/2000/svg'>

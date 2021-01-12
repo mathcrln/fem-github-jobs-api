@@ -4,9 +4,10 @@ import Checkbox from '../Checkbox';
 import { Form, StyledDiv, StyledCheckbox } from './filterTablet.styled';
 
 const FilterTablet = ({
-	state,
+	isChecked,
 	handleCheckboxChange,
-	handleChange,
+	handleSearchChange,
+	handleLocationChange,
 	handleSubmit,
 }) => {
 	return (
@@ -18,7 +19,7 @@ const FilterTablet = ({
 				iconHeight={23.94}
 				placeholder='Filter by title...'
 				additionalStyles='border-right: 0.8px solid #6e8098;'
-				onChange={handleChange}
+				handleChange={handleSearchChange}
 			/>
 			<SearchBar
 				name='location'
@@ -27,12 +28,11 @@ const FilterTablet = ({
 				iconHeight={23.89}
 				placeholder='Filter by location…'
 				additionalStyles='padding-left:1.5rem; border-right: 0.8px solid #6e8098;'
-				value={state.location}
-				onChange={handleChange}
+				handleChange={handleLocationChange}
 			/>
 
 			<StyledCheckbox>
-				<Checkbox checked={state.checked} onChange={handleCheckboxChange} />
+				<Checkbox checked={isChecked} onChange={handleCheckboxChange} />
 				<span>Full Time</span>
 			</StyledCheckbox>
 			<StyledDiv>
