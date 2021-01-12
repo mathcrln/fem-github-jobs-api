@@ -25,7 +25,6 @@ export default function OfferList({
 			) : (
 				<>
 					<OfferGrid>
-						{console.log('re-rendered')}
 						{data.slice(0, displayed).map((offer) => (
 							<Offer
 								key={offer.id}

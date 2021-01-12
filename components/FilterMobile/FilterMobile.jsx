@@ -37,6 +37,7 @@ const FilterMobile = ({
 						/>
 					</svg>
 				}
+				type='submit'
 				padding='1rem 1rem'
 			/>
 		</Form>

@@ -28,7 +28,6 @@ export default function Home() {
 
 	const handleSearchChange = (event) => {
 		setSearch(event.target.value);
-		console.log('search');
 	};
 	const handleLocationChange = (event) => {
 		setlocation(event.target.value);
