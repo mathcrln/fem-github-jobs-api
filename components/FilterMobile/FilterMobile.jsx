@@ -1,6 +1,7 @@
+import { useState } from 'react';
 import SearchBar from '../SearchBar';
 import Button from '../Button';
-import Checkbox from '../Checkbox';
+import MobileModal from '../MobileModal';
 import { Form, StyledFilterButton } from './filterMobile.styled';
 
 const FilterMobile = ({
@@ -10,15 +11,29 @@ const FilterMobile = ({
 	handleCheckboxChange,
 	handleSubmit,
 }) => {
+	const [modalStatus, setModalStatus] = useState(false);
+	const handleOpenModal = () => {
+		setModalStatus(true);
+		console.log('Modal open');
+	};
+
+	const handleCloseModal = () => {
+		setModalStatus(false);
+	};
+	const handleModalSubmit = () => {
+		console.log('closed');
+		// handleSubmit();
+		setModalStatus(false);
+	};
 	return (
-		<Form onSubmit={handleSubmit}>
+		<Form id='SearchForm' onSubmit={handleSubmit}>
 			<SearchBar
 				name='search'
 				placeholder='Filter by title...'
 				additionalStyles='flex-grow: 1;'
 				handleChange={handleSearchChange}
 			/>
-			<StyledFilterButton type='button'>
+			<StyledFilterButton type='button' onClick={handleOpenModal}>
 				<svg width='20' height='20' xmlns='http://www.w3.org/2000/svg'>
 					<path
 						d='M19.108 0H.86a.86.86 0 00-.764.455.833.833 0 00.068.884l6.685 9.202.007.01c.242.32.374.708.375 1.107v7.502a.825.825 0 00.248.594.865.865 0 00.942.18l3.756-1.4c.337-.1.56-.41.56-.784v-6.092c0-.399.132-.787.375-1.108l.007-.009 6.685-9.202c.19-.26.217-.6.068-.884A.86.86 0 0019.108 0z'
@@ -27,6 +42,7 @@ const FilterMobile = ({
 					/>
 				</svg>
 			</StyledFilterButton>
+
 			<Button
 				content={
 					<svg width='24' height='24' xmlns='http://www.w3.org/2000/svg'>
@@ -39,6 +55,14 @@ const FilterMobile = ({
 				}
 				type='submit'
 				padding='1rem 1rem'
+			/>
+			<MobileModal
+				modalStatus={modalStatus}
+				handleCloseModal={handleCloseModal}
+				handleLocationChange={handleLocationChange}
+				isChecked={isChecked}
+				handleCheckboxChange={handleCheckboxChange}
+				handleModalSubmit={handleModalSubmit}
 			/>
 		</Form>
 	);
