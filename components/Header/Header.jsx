@@ -8,12 +8,7 @@ export default function Header({ theme, toggleTheme }) {
 		<StyledHeader>
 			<Container additionalStyles='display: flex; justify-content: space-between; align-items: center;'>
 				<LogoContainer>
-					<Image
-						src='/logo.svg'
-						alt='Picture of the author'
-						width={115}
-						height={32}
-					/>
+					<Image src='/logo.svg' alt='Dev Jobs' width={115} height={32} />
 				</LogoContainer>
 
 				<ToggleContainer>
