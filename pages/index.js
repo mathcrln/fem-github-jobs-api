@@ -10,6 +10,7 @@ import OfferList from '../components/OfferList';
 import Header from '../components/Header';
 import Container from '../components/Container';
 import FilterContainer from '../components/FilterContainer';
+import Link from 'next/link';
 
 export default function Home() {
 	const [theme, setTheme] = useDarkMode();
@@ -65,6 +66,9 @@ export default function Home() {
 
 							<main>
 								<Container>
+									<Link href='/offer/[id]' as='/offer/first'>
+										<a>First Post</a>
+									</Link>
 									<OfferList
 										description={search}
 										location={location}

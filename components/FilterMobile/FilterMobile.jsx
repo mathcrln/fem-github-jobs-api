@@ -53,6 +53,7 @@ const FilterMobile = ({
 						/>
 					</svg>
 				}
+				form='SearchForm'
 				type='submit'
 				padding='1rem 1rem'
 			/>

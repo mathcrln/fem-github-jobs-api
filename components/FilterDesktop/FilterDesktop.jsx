@@ -37,7 +37,12 @@ const DesktopFilter = ({
 				</label>
 			</StyledDiv>
 			<StyledDiv>
-				<Button content='Search' type='submit' padding='1rem 2.4375rem' />
+				<Button
+					content='Search'
+					type='submit'
+					padding='1rem 2.4375rem'
+					form='SearchForm'
+				/>
 			</StyledDiv>
 		</Form>
 	);
