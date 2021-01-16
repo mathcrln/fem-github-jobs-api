@@ -22,6 +22,7 @@ const StyledHeader = styled.header`
 
 const LogoContainer = styled.div`
 	max-width: 115px;
+	cursor: pointer;
 `;
 
 const ToggleContainer = styled.div`

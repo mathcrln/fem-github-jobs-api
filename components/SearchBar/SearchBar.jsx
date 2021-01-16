@@ -19,7 +19,6 @@ const SearchBar = ({
 				name={name}
 				type='text'
 				placeholder={placeholder}
-				id={name}
 				onChange={handleChange}
 			/>
 		</StyledSearch>

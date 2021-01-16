@@ -11,7 +11,7 @@ const DesktopFilter = ({
 	handleSubmit,
 }) => {
 	return (
-		<Form onSubmit={handleSubmit}>
+		<Form id='SearchFormDesktop' onSubmit={handleSubmit}>
 			<SearchBar
 				name='search'
 				iconFile='icon-search'
@@ -37,7 +37,12 @@ const DesktopFilter = ({
 				</label>
 			</StyledDiv>
 			<StyledDiv>
-				<Button content='Search' type='submit' padding='1rem 2.4375rem' />
+				<Button
+					content='Search'
+					type='submit'
+					padding='1rem 2.4375rem'
+					form='SearchFormDesktop'
+				/>
 			</StyledDiv>
 		</Form>
 	);

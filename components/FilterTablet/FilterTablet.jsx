@@ -11,7 +11,7 @@ const FilterTablet = ({
 	handleSubmit,
 }) => {
 	return (
-		<Form onSubmit={handleSubmit}>
+		<Form id='SearchFormTablet' onSubmit={handleSubmit}>
 			<SearchBar
 				name='search'
 				iconFile='icon-search'
@@ -36,7 +36,12 @@ const FilterTablet = ({
 				<span>Full Time</span>
 			</StyledCheckbox>
 			<StyledDiv>
-				<Button content='Search' padding='1rem 0.875rem' type='submit' />
+				<Button
+					content='Search'
+					padding='1rem 0.875rem'
+					type='submit'
+					form='SearchFormTablet'
+				/>
 			</StyledDiv>
 		</Form>
 	);

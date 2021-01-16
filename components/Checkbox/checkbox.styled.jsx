@@ -20,7 +20,7 @@ const Icon = styled.svg`
 	stroke-width: 2px;
 `;
 const StyledCheckbox = styled.div`
-	margin: 0 1rem;
+	margin: 0 1rem 0 0;
 	display: inline-block;
 	width: 1.5rem;
 	height: 1.5rem;

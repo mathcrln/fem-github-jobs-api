@@ -2,7 +2,7 @@ import Head from 'next/head';
 import { ThemeProvider } from 'styled-components';
 import { useDarkMode } from '../hooks/useDarkMode';
 import { useState } from 'react';
-import { MediaContextProvider } from '../media';
+import { ModalProvider } from 'styled-react-modal';
 import { lightTheme, darkTheme } from '../theme';
 import { GlobalStyles } from '../global';
 import OfferList from '../components/OfferList';
@@ -42,13 +42,13 @@ export default function Home() {
 
 	return (
 		<ThemeProvider theme={themeMode}>
-			<>
-				<GlobalStyles />
-				<Head>
-					<title>Github Jobs API</title>
-					<link rel='icon' href='/favicon.ico' />
-				</Head>
-				<MediaContextProvider>
+			<ModalProvider>
+				<>
+					<GlobalStyles />
+					<Head>
+						<title>Github Jobs API</title>
+						<link rel='icon' href='/favicon.ico' />
+					</Head>
 					<div className='App'>
 						<Header theme={theme} toggleTheme={toggleTheme} />
 
@@ -71,8 +71,8 @@ export default function Home() {
 							</Container>
 						</main>
 					</div>
-				</MediaContextProvider>
-			</>
+				</>
+			</ModalProvider>
 		</ThemeProvider>
 	);
 }

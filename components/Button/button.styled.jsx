@@ -8,8 +8,10 @@ const StyledButton = styled.button`
 	color: white;
 	cursor: pointer;
 	padding: ${(props) => props.padding};
+	width: ${(props) => props.width};
 	display: flex;
 	align-items: center;
+	justify-content: center;
 	font-size: 1rem;
 	font-weight: bold;
 	max-height: 3rem;
