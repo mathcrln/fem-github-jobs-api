@@ -1,33 +1,49 @@
 import Offer from '../Offer';
-import OfferGrid from './offerList.styled';
+import Button from '../Button';
+import { useFetch } from '../../hooks/useFetch';
+import { useDisplayOffers } from '../../hooks/useDisplayOffers';
+import { OfferGrid, Loading, Center } from './offerList.styled';
 
-export default function OfferList() {
+export default function OfferList({
+	description = '',
+	fullTimeOnly = '',
+	location = '',
+	submitted,
+}) {
+	const { data, loading } = useFetch(
+		description,
+		fullTimeOnly,
+		location,
+		submitted
+	);
+	const { displayed, loadMore } = useDisplayOffers(12);
+	const isDisplayComplete = displayed > data.length ? true : false;
 	return (
-		<OfferGrid>
-			<Offer
-				title='Senior Software Engineer'
-				timeSince='5h ago'
-				contractType='Full Time'
-				company='So Digital Inc.'
-				region='Remote, Seoul, Tokyo, Mountain View, San Fransisco'
-				companyIcon='so-digital'
-			/>
-			<Offer
-				title='Haskell and PureScript Dev'
-				timeSince='20h ago'
-				contractType='Part Time'
-				company='National Wildlife'
-				region='Columbus, OH'
-				companyIcon='national-wildlife'
-			/>
-			<Offer
-				title='Midlevel Back End Engineer'
-				timeSince='1d ago'
-				contractType='Part Time'
-				company='Photosnap Ltd.'
-				region='Russia'
-				companyIcon='photosnap'
-			/>
-		</OfferGrid>
+		<>
+			{loading ? (
+				<Loading>Loading...</Loading>
+			) : (
+				<>
+					<OfferGrid>
+						{data.slice(0, displayed).map((offer) => (
+							<Offer
+								key={offer.id}
+								title={offer.title}
+								createdAt={offer.created_at}
+								contractType={offer.type}
+								company={offer.company}
+								region={offer.location}
+								companyIcon={offer.company_logo}
+							/>
+						))}
+					</OfferGrid>
+					<Center>
+						{isDisplayComplete ? null : (
+							<Button content='Load More' handler={loadMore} />
+						)}
+					</Center>
+				</>
+			)}
+		</>
 	);
 }

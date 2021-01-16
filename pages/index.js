@@ -1,14 +1,14 @@
 import Head from 'next/head';
-import React, { useState } from 'react';
 import { ThemeProvider } from 'styled-components';
 import { useDarkMode } from '../hooks/useDarkMode';
+import { useState } from 'react';
+import { MediaContextProvider } from '../media';
 import { lightTheme, darkTheme } from '../theme';
 import { GlobalStyles } from '../global';
-import Toggle from '../components/Toggle';
-
 import OfferList from '../components/OfferList';
 import Header from '../components/Header';
 import Container from '../components/Container';
+import FilterContainer from '../components/FilterContainer';
 
 export default function Home() {
 	const [theme, setTheme] = useDarkMode();
@@ -20,6 +20,26 @@ export default function Home() {
 			setTheme('light');
 		}
 	};
+
+	const [search, setSearch] = useState('');
+	const [location, setlocation] = useState('');
+	const [fullTimeOnly, setfullTimeOnly] = useState(false);
+	const [submitted, setSubmitted] = useState(false);
+
+	const handleSearchChange = (event) => {
+		setSearch(event.target.value);
+	};
+	const handleLocationChange = (event) => {
+		setlocation(event.target.value);
+	};
+	const handleCheckboxChange = (event) => {
+		setfullTimeOnly(event.target.checked);
+	};
+	const handleSubmit = (event) => {
+		event.preventDefault();
+		setSubmitted(submitted + 1);
+	};
+
 	return (
 		<ThemeProvider theme={themeMode}>
 			<>
@@ -28,16 +48,30 @@ export default function Home() {
 					<title>Github Jobs API</title>
 					<link rel='icon' href='/favicon.ico' />
 				</Head>
+				<MediaContextProvider>
+					<div className='App'>
+						<Header theme={theme} toggleTheme={toggleTheme} />
 
-				<div className='App'>
-					<Header theme={theme} toggleTheme={toggleTheme} />
-					<main>
-						<Container>
-							<OfferList />
-						</Container>
-						{/* <Toggle theme={theme} toggleTheme={toggleTheme} /> */}
-					</main>
-				</div>
+						<FilterContainer
+							handleSearchChange={handleSearchChange}
+							handleLocationChange={handleLocationChange}
+							handleCheckboxChange={handleCheckboxChange}
+							fullTimeOnly={fullTimeOnly}
+							handleSubmit={handleSubmit}
+						/>
+
+						<main>
+							<Container>
+								<OfferList
+									description={search}
+									location={location}
+									fullTimeOnly={fullTimeOnly}
+									submitted={submitted}
+								/>
+							</Container>
+						</main>
+					</div>
+				</MediaContextProvider>
 			</>
 		</ThemeProvider>
 	);
