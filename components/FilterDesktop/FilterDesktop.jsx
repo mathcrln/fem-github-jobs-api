@@ -11,7 +11,7 @@ const DesktopFilter = ({
 	handleSubmit,
 }) => {
 	return (
-		<Form onSubmit={handleSubmit}>
+		<Form id='SearchForm' onSubmit={handleSubmit}>
 			<SearchBar
 				name='search'
 				iconFile='icon-search'

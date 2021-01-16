@@ -1,9 +1,8 @@
-import { useState } from 'react';
 import Container from '../Container';
 import FilterDesktop from '../FilterDesktop';
 import FilterMobile from '../FilterMobile';
 import FilterTablet from '../FilterTablet';
-import { Media } from '../../media';
+import { MobileOnly, TabletOnly, LaptopOnly } from './filterContainer.styled';
 
 const FilterContainer = ({
 	handleSearchChange,
@@ -14,7 +13,7 @@ const FilterContainer = ({
 }) => {
 	return (
 		<Container additionalStyles='margin-top: -3rem; margin-bottom: 4rem;'>
-			<Media at='mobile'>
+			<MobileOnly>
 				<FilterMobile
 					isChecked={fullTimeOnly}
 					handleCheckboxChange={handleCheckboxChange}
@@ -22,8 +21,8 @@ const FilterContainer = ({
 					handleLocationChange={handleLocationChange}
 					handleSubmit={handleSubmit}
 				/>
-			</Media>
-			<Media between={['tablet', 'laptop']}>
+			</MobileOnly>
+			<TabletOnly>
 				<FilterTablet
 					isChecked={fullTimeOnly}
 					handleCheckboxChange={handleCheckboxChange}
@@ -31,8 +30,8 @@ const FilterContainer = ({
 					handleLocationChange={handleLocationChange}
 					handleSubmit={handleSubmit}
 				/>
-			</Media>
-			<Media greaterThanOrEqual='laptop'>
+			</TabletOnly>
+			<LaptopOnly>
 				<FilterDesktop
 					isChecked={fullTimeOnly}
 					handleCheckboxChange={handleCheckboxChange}
@@ -40,7 +39,7 @@ const FilterContainer = ({
 					handleLocationChange={handleLocationChange}
 					handleSubmit={handleSubmit}
 				/>
-			</Media>
+			</LaptopOnly>
 		</Container>
 	);
 };

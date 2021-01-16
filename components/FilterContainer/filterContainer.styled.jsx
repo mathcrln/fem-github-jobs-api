@@ -1,26 +1,31 @@
 import styled from 'styled-components';
 import { device } from '../../utilities/devices';
 
-const Form = styled.form`
-	background: ${({ theme }) => theme.elementsBackground};
-	border-radius: 6px;
-	border: none;
-	min-height: 5rem;
-	display: grid;
-	grid-template-columns: 41.6% 27% 16% 1fr;
-
+const MobileOnly = styled.div`
 	@media ${device.tablet} {
-		grid-template-columns: 1fr 1fr 15% 15%;
+		display: none;
 	}
 	@media ${device.desktop} {
+		display: none;
+	}
+`;
+const TabletOnly = styled.div`
+	display: none;
+	@media ${device.tablet} {
+		display: block;
+	}
+	@media ${device.desktop} {
+		display: none;
+	}
+`;
+const LaptopOnly = styled.div`
+	display: none;
+	@media ${device.tablet} {
+		display: none;
+	}
+	@media ${device.desktop} {
+		display: block;
 	}
 `;
 
-const StyledDiv = styled.div`
-	display: flex;
-	align-items: center;
-	justify-content: center;
-	font-weight: bold;
-`;
-
-export { Form, StyledDiv };
+export { MobileOnly, TabletOnly, LaptopOnly };

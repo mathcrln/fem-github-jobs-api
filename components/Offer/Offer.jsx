@@ -1,5 +1,6 @@
 import Image from 'next/image';
 import relativeDate from 'relative-date';
+import Link from 'next/link';
 import {
 	OfferContainer,
 	OfferTitle,
@@ -12,6 +13,7 @@ import {
 } from './offer.styled';
 
 export default function Offer({
+	id,
 	title,
 	company,
 	createdAt,
@@ -39,7 +41,9 @@ export default function Offer({
 			<OfferDetails>{timeSince}</OfferDetails>
 			<CircleSeparator />
 			<OfferDetails>{contractType}</OfferDetails>
-			<OfferTitle>{title}</OfferTitle>
+			<OfferTitle>
+				<Link href={`/offer/${id}`}>{title}</Link>
+			</OfferTitle>
 			<Company>{company}</Company>
 			<Region>{region}</Region>
 		</OfferContainer>

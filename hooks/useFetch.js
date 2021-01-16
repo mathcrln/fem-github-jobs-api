@@ -7,8 +7,8 @@ export const useFetch = (
 ) => {
 	const [data, setData] = useState([]);
 	const [loading, setLoading] = useState(true);
-	const requestedUrl = `https://cors-anywhere.herokuapp.com/https://jobs.github.com/positions.json${
-		description ? `?description=${description}&` : ''
+	const requestedUrl = `https://cors-anywhere.herokuapp.com/https://jobs.github.com/positions.json?${
+		description ? `description=${description}&` : ''
 	}${fullTimeOnly ? `full_time=on&` : ''}${
 		location ? `location=${location}` : ''
 	}`;

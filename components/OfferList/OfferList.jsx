@@ -28,6 +28,7 @@ export default function OfferList({
 						{data.slice(0, displayed).map((offer) => (
 							<Offer
 								key={offer.id}
+								id={offer.id}
 								title={offer.title}
 								createdAt={offer.created_at}
 								contractType={offer.type}

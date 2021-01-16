@@ -8,13 +8,16 @@ const OfferContainer = styled.div`
 `;
 
 const OfferTitle = styled.h2`
-	color: ${({ theme }) => theme.headingColor};
 	font-family: Kumbh Sans, sans-serif;
 	font-size: 1.25rem;
 	font-style: normal;
 	font-weight: bold;
-	line-height: 1.25rem;
+	line-height: 2rem;
 
+	a {
+		color: ${({ theme }) => theme.headingColor};
+		text-decoration: none;
+	}
 	:hover {
 		color: #6e8098;
 		cursor: pointer;
