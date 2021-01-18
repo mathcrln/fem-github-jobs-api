@@ -2,13 +2,13 @@ import { useRouter } from 'next/router';
 import Link from 'next/link';
 import Header from '../../../components/Header';
 
-const SingleOffer = () => {
+const SingleOffer = ({ theme, toggleTheme }) => {
 	const router = useRouter();
 	const { id } = router.query;
 
 	return (
 		<>
-			<Header />
+			<Header theme={theme} toggleTheme={toggleTheme} />
 			<h1>Post: {id}</h1>
 			<ul>
 				<li>
