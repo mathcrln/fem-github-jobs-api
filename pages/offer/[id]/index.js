@@ -6,20 +6,15 @@ import unified from 'unified';
 import parse from 'remark-parse';
 import remark2react from 'remark-react';
 import Loading from '../../../components/shared/Loading';
-import Button from '../../../components/shared/Button';
+import OfferInfos from '../../../components/offer-page/OfferInfos';
+import CompanyCTA from '../../../components/offer-page/CompanyCTA';
 
 import {
 	Main,
 	SingleOfferContainer,
-	OfferHeader,
-	OfferDetails,
-	CircleSeparator,
-	OfferTitle,
-	Region,
-} from './index-offer.styled';
-import relativeDate from 'relative-date';
+} from '../../../components/offer-page/index-offer.styled';
 
-const SingleOffer = ({ theme, toggleTheme }) => {
+export default function SingleOffer({ theme, toggleTheme }) {
 	const router = useRouter();
 	const { id } = router.query;
 	const requestedUrl = `https://cors-anywhere.herokuapp.com/https://jobs.github.com/positions/${id}.json?markdown=true`;
@@ -33,9 +28,6 @@ const SingleOffer = ({ theme, toggleTheme }) => {
 		})
 		.processSync(data.description).result;
 
-	console.log(data);
-	let timeSince = relativeDate(Date.parse(data?.created_at));
-	timeSince = timeSince?.charAt(0).toUpperCase() + timeSince?.slice(1);
 	return (
 		<>
 			<Head>
@@ -48,25 +40,18 @@ const SingleOffer = ({ theme, toggleTheme }) => {
 					<Loading />
 				) : (
 					<Main>
+						<CompanyCTA
+							company={data?.company}
+							logo={data?.company_logo}
+							url={data?.company_url}
+						/>
 						<SingleOfferContainer>
-							<OfferHeader>
-								<div>
-									<div>
-										<OfferDetails>{timeSince}</OfferDetails>
-										<CircleSeparator />
-										<OfferDetails> {data.type}</OfferDetails>
-									</div>
-
-									<div>
-										<OfferTitle>{data.title}</OfferTitle>
-
-										<Region>{data.location}</Region>
-									</div>
-								</div>
-								<div>
-									<Button content='Apply now' />
-								</div>
-							</OfferHeader>
+							<OfferInfos
+								title={data?.title}
+								createdAt={data?.created_at}
+								location={data?.location}
+								contractType={data?.type}
+							/>
 							{Description}
 						</SingleOfferContainer>
 					</Main>
@@ -74,9 +59,8 @@ const SingleOffer = ({ theme, toggleTheme }) => {
 			</div>
 		</>
 	);
-};
+}
 
-export default SingleOffer;
 export async function getServerSideProps(context) {
 	return {
 		props: {}, // will be passed to the page component as props
