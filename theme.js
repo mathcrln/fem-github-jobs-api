@@ -8,7 +8,7 @@ export const lightTheme = {
 
 export const darkTheme = {
 	body: '#121721',
-	text: '#FAFAFA',
+	text: ' #6e8098;',
 	elementsBackground: '#19202D',
 	checkBackground: '#313743',
 

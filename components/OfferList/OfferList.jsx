@@ -1,8 +1,9 @@
 import Offer from '../Offer';
-import Button from '../Button';
+import Button from '../shared/Button';
 import { useFetch } from '../../hooks/useFetch';
 import { useDisplayOffers } from '../../hooks/useDisplayOffers';
-import { OfferGrid, Loading, Center } from './offerList.styled';
+import { OfferGrid, Center } from './offerList.styled';
+import Loading from '../shared/Loading';
 
 export default function OfferList({
 	description = '',
@@ -10,18 +11,19 @@ export default function OfferList({
 	location = '',
 	submitted,
 }) {
-	const { data, loading } = useFetch(
-		description,
-		fullTimeOnly,
-		location,
-		submitted
-	);
+	const requestedUrl = `https://cors-anywhere.herokuapp.com/https://jobs.github.com/positions.json?${
+		description ? `description=${description}&` : ''
+	}${fullTimeOnly ? `full_time=on&` : ''}${
+		location ? `location=${location}` : ''
+	}`;
+
+	const { data, loading } = useFetch(requestedUrl, submitted);
 	const { displayed, loadMore } = useDisplayOffers(12);
 	const isDisplayComplete = displayed > data.length ? true : false;
 	return (
 		<>
 			{loading ? (
-				<Loading>Loading...</Loading>
+				<Loading />
 			) : (
 				<>
 					<OfferGrid>

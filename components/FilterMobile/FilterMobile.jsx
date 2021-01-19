@@ -1,6 +1,6 @@
 import { useState } from 'react';
 import SearchBar from '../SearchBar';
-import Button from '../Button';
+import Button from '../shared/Button';
 import MobileModal from '../MobileModal';
 import { Form, StyledFilterButton } from './filterMobile.styled';
 

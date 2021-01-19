@@ -1,5 +1,5 @@
 import SearchBar from '../SearchBar';
-import Button from '../Button';
+import Button from '../shared/Button';
 import Checkbox from '../Checkbox';
 import { Form, StyledDiv } from './filterDesktop.styled';
 

@@ -1,10 +1,8 @@
 import Head from 'next/head';
-
 import { useState } from 'react';
 import { ModalProvider } from 'styled-react-modal';
-
 import OfferList from '../components/OfferList';
-import Header from '../components/Header';
+import Header from '../components/shared/Header';
 import Container from '../components/Container';
 import FilterContainer from '../components/FilterContainer';
 

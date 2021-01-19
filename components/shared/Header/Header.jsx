@@ -1,8 +1,8 @@
 import { StyledHeader, LogoContainer, ToggleContainer } from './header.styled';
 import Link from 'next/link';
-import Container from '../Container';
+import Container from '../../Container';
 import Image from 'next/image';
-import Toggle from '../Toggle';
+import Toggle from '../../Toggle';
 
 const Logo = React.forwardRef((props, ref) => (
 	<a ref={ref} {...props}>
