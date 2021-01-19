@@ -1,6 +1,6 @@
 import Button from '../../shared/Button';
 
-import { Company } from './CompanyCTA.styled';
+import { Company } from './companyCTA.styled';
 
 export default function CompanyCTA({ company }) {
 	return (
