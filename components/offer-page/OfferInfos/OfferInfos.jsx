@@ -6,6 +6,7 @@ import {
 	CircleSeparator,
 	OfferTitle,
 	Region,
+	Informations,
 } from './offerInfos.styled';
 
 export default function OfferInfos({
@@ -18,7 +19,7 @@ export default function OfferInfos({
 	timeSince = timeSince?.charAt(0).toUpperCase() + timeSince?.slice(1);
 	return (
 		<OfferHeader>
-			<div>
+			<Informations>
 				<div>
 					<OfferDetails>{timeSince}</OfferDetails>
 					<CircleSeparator />
@@ -30,10 +31,8 @@ export default function OfferInfos({
 
 					<Region>{location}</Region>
 				</div>
-			</div>
-			<div>
-				<Button content='Apply now' />
-			</div>
+			</Informations>
+			<Button content='Apply now' width='100%' />
 		</OfferHeader>
 	);
 }

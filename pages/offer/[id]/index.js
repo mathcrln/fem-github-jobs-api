@@ -8,10 +8,14 @@ import remark2react from 'remark-react';
 import Loading from '../../../components/shared/Loading';
 import OfferInfos from '../../../components/offer-page/OfferInfos';
 import CompanyCTA from '../../../components/offer-page/CompanyCTA';
+import HowToApply from '../../../components/offer-page/HowToApply';
 
 import {
 	Main,
 	SingleOfferContainer,
+	StyledLinks,
+	StyledUl,
+	StyledLi,
 } from '../../../components/offer-page/index-offer.styled';
 
 export default function SingleOffer({ theme, toggleTheme }) {
@@ -23,11 +27,13 @@ export default function SingleOffer({ theme, toggleTheme }) {
 		.use(parse)
 		.use(remark2react, {
 			remarkReactComponents: {
-				// h2: StyledH2,
+				a: StyledLinks,
+				ul: StyledUl,
+				li: StyledLi,
 			},
 		})
 		.processSync(data.description).result;
-
+	console.log(requestedUrl);
 	return (
 		<>
 			<Head>
@@ -39,22 +45,25 @@ export default function SingleOffer({ theme, toggleTheme }) {
 				{loading ? (
 					<Loading />
 				) : (
-					<Main>
-						<CompanyCTA
-							company={data?.company}
-							logo={data?.company_logo}
-							url={data?.company_url}
-						/>
-						<SingleOfferContainer>
-							<OfferInfos
-								title={data?.title}
-								createdAt={data?.created_at}
-								location={data?.location}
-								contractType={data?.type}
+					<>
+						<Main>
+							<CompanyCTA
+								company={data?.company}
+								logo={data?.company_logo}
+								url={data?.company_url}
 							/>
-							{Description}
-						</SingleOfferContainer>
-					</Main>
+							<SingleOfferContainer>
+								<OfferInfos
+									title={data?.title}
+									createdAt={data?.created_at}
+									location={data?.location}
+									contractType={data?.type}
+								/>
+								{Description}
+							</SingleOfferContainer>
+						</Main>
+						<HowToApply content={data?.how_to_apply} />
+					</>
 				)}
 			</div>
 		</>
