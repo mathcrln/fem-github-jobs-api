@@ -21,6 +21,7 @@ export default function Button({
 			type={type}
 			role={role}
 			width={width}
+			aria-label={name}
 		>
 			{content ? content : null}
 		</StyledButton>

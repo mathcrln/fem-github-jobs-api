@@ -34,6 +34,7 @@ export default function CompanyCTA({ company, logo, url }) {
 					<Button
 						handler={() => window.open(url, '_blank')}
 						content='Company Site'
+						name='Company'
 					/>
 				) : null}
 			</div>

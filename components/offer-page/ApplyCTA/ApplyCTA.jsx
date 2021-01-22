@@ -20,6 +20,7 @@ export default function ApplyCTA({ title, companyUrl, url }) {
 				<CTA>
 					<Button
 						content='Apply Now'
+						name='Apply'
 						handler={() => window.open(url, '_blank')}
 						width='100%'
 					/>

@@ -37,7 +37,13 @@ export default function SingleOffer({ theme, toggleTheme }) {
 	return (
 		<>
 			<Head>
-				<title>{data.title}</title>
+				<title>
+					{data?.title} | {data?.company}
+				</title>
+				<meta
+					name='description'
+					content={`Find out everything you need to know about the "${data?.title}" job offer at ${data?.company}.`}
+				/>
 				<link rel='icon' href='/favicon.ico' />
 			</Head>
 			<div className='App'>

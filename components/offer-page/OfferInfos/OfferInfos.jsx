@@ -35,6 +35,7 @@ export default function OfferInfos({
 			</Informations>
 			<Button
 				content='Apply now'
+				name='Apply'
 				width='100%'
 				handler={() => window.open(url, '_blank')}
 			/>
