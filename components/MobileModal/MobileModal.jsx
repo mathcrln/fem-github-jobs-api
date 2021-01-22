@@ -1,6 +1,6 @@
 import { StyledModal, ModalContainer } from './mobileModal.styled';
 import SearchBar from '../SearchBar';
-import Button from '../Button';
+import Button from '../shared/Button';
 import Checkbox from '../Checkbox';
 
 const MobileModal = ({

@@ -42,7 +42,7 @@ export default function Offer({
 			<CircleSeparator />
 			<OfferDetails>{contractType}</OfferDetails>
 			<OfferTitle>
-				<Link href={`/offer/${id}`}>{title}</Link>
+				<Link href={{ pathname: `/offer/${id}` }}>{title}</Link>
 			</OfferTitle>
 			<Company>{company}</Company>
 			<Region>{region}</Region>

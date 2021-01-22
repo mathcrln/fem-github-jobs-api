@@ -16,9 +16,12 @@ const StyledButton = styled.button`
 	font-weight: bold;
 	max-height: 3rem;
 	font-family: 'Kumbh Sans', serif;
+	min-width: max-content;
 	:hover {
 		background: #939bf4;
 	}
+
+	${(props) => props.additionnalStyles};
 `;
 
 export { StyledButton };

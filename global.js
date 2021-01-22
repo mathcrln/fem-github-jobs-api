@@ -20,4 +20,5 @@ export const GlobalStyles = createGlobalStyle`
     background: ${({ theme }) => theme.body};
     color: ${({ theme }) => theme.text};
     padding-bottom: 5rem;
+    position:relative;
   }`;

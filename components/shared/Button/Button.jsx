@@ -1,6 +1,7 @@
 import { StyledButton } from './button.styled';
 
 export default function Button({
+	additionnalStyles,
 	content,
 	form = '',
 	name,
@@ -14,11 +15,13 @@ export default function Button({
 		<StyledButton
 			name={name}
 			form={form}
+			additionnalStyles={additionnalStyles}
 			padding={padding}
 			onClick={handler}
 			type={type}
 			role={role}
 			width={width}
+			aria-label={name}
 		>
 			{content ? content : null}
 		</StyledButton>
