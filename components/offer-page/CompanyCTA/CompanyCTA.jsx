@@ -1,6 +1,6 @@
 import Button from '../../shared/Button';
 import Image from 'next/image';
-
+import { shortenUrl } from '../../../utilities/shortenUrl';
 import {
 	Company,
 	CompanyName,
@@ -10,7 +10,7 @@ import {
 } from './companyCTA.styled';
 
 export default function CompanyCTA({ company, logo, url }) {
-	const shortenedUrl = url?.split(/\//)[2]?.split(/www./)[1];
+	const shortenedUrl = shortenUrl(url);
 	return (
 		<Company>
 			{logo && (

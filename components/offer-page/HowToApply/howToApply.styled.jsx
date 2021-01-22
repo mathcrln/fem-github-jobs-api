@@ -2,16 +2,21 @@ import styled from 'styled-components';
 import { device } from '../../../utilities/devices';
 
 const StyledDiv = styled.div`
-	background: #5964e0;
+	background-color: #5964e0;
+	background-image: url('/mobile/bg-pattern-detail-footer.svg');
+	background-size: cover;
+	min-height: 8.5rem;
+	padding-top: 2rem;
 	width: 87.2%;
 	color: white;
 	border-radius: 6px;
 	padding: 2rem;
 	margin: 2rem auto;
-	box-sizing: border-box;
+	word-wrap: break-word;
 
 	@media ${device.tablet} {
 		width: 89.7%;
+		background-image: url('/desktop/bg-pattern-detail-footer.svg');
 	}
 
 	@media ${device.desktop} {

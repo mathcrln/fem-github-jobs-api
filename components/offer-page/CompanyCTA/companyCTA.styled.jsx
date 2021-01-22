@@ -41,6 +41,7 @@ const CompanyName = styled.h2`
 `;
 const CompanyInfos = styled.div`
 	margin: 0 1rem;
+	text-align: center;
 `;
 
 const CompanyIcon = styled.div`

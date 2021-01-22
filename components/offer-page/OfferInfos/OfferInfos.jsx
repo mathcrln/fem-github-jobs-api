@@ -14,6 +14,7 @@ export default function OfferInfos({
 	createdAt,
 	location,
 	contractType,
+	url,
 }) {
 	let timeSince = relativeDate(Date.parse(createdAt));
 	timeSince = timeSince?.charAt(0).toUpperCase() + timeSince?.slice(1);
@@ -32,7 +33,11 @@ export default function OfferInfos({
 					<Region>{location}</Region>
 				</div>
 			</Informations>
-			<Button content='Apply now' width='100%' />
+			<Button
+				content='Apply now'
+				width='100%'
+				handler={() => window.open(url, '_blank')}
+			/>
 		</OfferHeader>
 	);
 }

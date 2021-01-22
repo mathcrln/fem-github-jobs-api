@@ -9,6 +9,7 @@ import Loading from '../../../components/shared/Loading';
 import OfferInfos from '../../../components/offer-page/OfferInfos';
 import CompanyCTA from '../../../components/offer-page/CompanyCTA';
 import HowToApply from '../../../components/offer-page/HowToApply';
+import ApplyCTA from '../../../components/offer-page/ApplyCTA';
 
 import {
 	Main,
@@ -33,7 +34,6 @@ export default function SingleOffer({ theme, toggleTheme }) {
 			},
 		})
 		.processSync(data.description).result;
-	console.log(requestedUrl);
 	return (
 		<>
 			<Head>
@@ -58,11 +58,19 @@ export default function SingleOffer({ theme, toggleTheme }) {
 									createdAt={data?.created_at}
 									location={data?.location}
 									contractType={data?.type}
+									url={data?.url}
 								/>
 								{Description}
 							</SingleOfferContainer>
 						</Main>
 						<HowToApply content={data?.how_to_apply} />
+						{data?.company_url ? (
+							<ApplyCTA
+								title={data?.title}
+								url={data?.url}
+								companyUrl={data?.company_url}
+							/>
+						) : null}
 					</>
 				)}
 			</div>
