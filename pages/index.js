@@ -32,6 +32,10 @@ export default function Home({ theme, toggleTheme }) {
 				<Head>
 					<title>Github Jobs API</title>
 					<link rel='icon' href='/favicon.ico' />
+					<meta
+						name='description'
+						content='Find the best jobs offers on Github'
+					/>
 				</Head>
 				<div className='App'>
 					<Header theme={theme} toggleTheme={toggleTheme} />

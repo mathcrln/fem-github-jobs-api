@@ -10,6 +10,7 @@ import OfferInfos from '../../../components/offer-page/OfferInfos';
 import CompanyCTA from '../../../components/offer-page/CompanyCTA';
 import HowToApply from '../../../components/offer-page/HowToApply';
 import ApplyCTA from '../../../components/offer-page/ApplyCTA';
+import ErrorMessage from '../../../components/shared/ErrorMessage';
 
 import {
 	Main,
@@ -23,7 +24,7 @@ export default function SingleOffer({ theme, toggleTheme }) {
 	const router = useRouter();
 	const { id } = router.query;
 	const requestedUrl = `https://cors-anywhere.herokuapp.com/https://jobs.github.com/positions/${id}.json?markdown=true`;
-	const { data, loading } = useFetch(requestedUrl, true);
+	const { data, loading, error } = useFetch(requestedUrl, true);
 	const Description = unified()
 		.use(parse)
 		.use(remark2react, {
@@ -50,6 +51,10 @@ export default function SingleOffer({ theme, toggleTheme }) {
 				<Header theme={theme} toggleTheme={toggleTheme} />
 				{loading ? (
 					<Loading />
+				) : error ? (
+					<Main>
+						<ErrorMessage>{error}</ErrorMessage>
+					</Main>
 				) : (
 					<>
 						<Main>

@@ -4,6 +4,7 @@ import { useFetch } from '../../hooks/useFetch';
 import { useDisplayOffers } from '../../hooks/useDisplayOffers';
 import { OfferGrid, Center } from './offerList.styled';
 import Loading from '../shared/Loading';
+import ErrorMessage from '../shared/ErrorMessage';
 
 export default function OfferList({
 	description = '',
@@ -17,17 +18,19 @@ export default function OfferList({
 		location ? `location=${location}` : ''
 	}`;
 
-	const { data, loading } = useFetch(requestedUrl, submitted);
+	const { data, loading, error } = useFetch(requestedUrl, submitted);
 	const { displayed, loadMore } = useDisplayOffers(12);
 	const isDisplayComplete = displayed > data.length ? true : false;
 	return (
 		<>
 			{loading ? (
 				<Loading />
+			) : error ? (
+				<ErrorMessage>{error}</ErrorMessage>
 			) : (
 				<>
 					<OfferGrid>
-						{data.slice(0, displayed).map((offer) => (
+						{data?.slice(0, displayed).map((offer) => (
 							<Offer
 								key={offer.id}
 								id={offer.id}
