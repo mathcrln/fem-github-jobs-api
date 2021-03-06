@@ -23,7 +23,7 @@ import {
 export default function SingleOffer({ theme, toggleTheme }) {
 	const router = useRouter();
 	const { id } = router.query;
-	const requestedUrl = `https://cors-anywhere.herokuapp.com/https://jobs.github.com/positions/${id}.json?markdown=true`;
+	const requestedUrl = `https://mathcrln-cors.herokuapp.com/https://jobs.github.com/positions/${id}.json?markdown=true`;
 	const { data, loading, error } = useFetch(requestedUrl, true);
 	const Description = unified()
 		.use(parse)
