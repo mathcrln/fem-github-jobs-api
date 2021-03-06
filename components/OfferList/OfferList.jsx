@@ -12,7 +12,7 @@ export default function OfferList({
 	location = '',
 	submitted,
 }) {
-	const requestedUrl = `https://cors-anywhere.herokuapp.com/https://jobs.github.com/positions.json?${
+	const requestedUrl = `https://mathcrln-cors.herokuapp.com/https://jobs.github.com/positions.json?${
 		description ? `description=${description}&` : ''
 	}${fullTimeOnly ? `full_time=on&` : ''}${
 		location ? `location=${location}` : ''
